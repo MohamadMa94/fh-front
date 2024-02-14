@@ -1,18 +1,156 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'white': '#ffffff',
+      'purple': '#3f3cbb',
+      'midnight': '#121063',
+      'metal': '#565584',
+      'tahiti': '#3ab7bf',
+      'silver': '#ecebff',
+      'bubble-gum': '#ff77e9',
+      'bermuda': '#78dcca',
+      'black':'#000000',
+      Amber: {
+        100: '#fef3c7',
+        200: '#fde68a',
+        300: '#fcd34d',
+        400: '#fbbf24',
+        500: '#f59e0b',
+        600: '#d97706',
+        700: '#b45309',
+        800: '#92400e',
+        900: '#78350f',
+      },
+      gray: {
+        '50': '#f9fafb',
+        '100': '#f4f5f7',
+        '200': '#e5e7eb',
+        '300': '#d2d6dc',
+        '400': '#9fa6b2',
+        '500': '#6b7280',
+        '600': '#4b5563',
+        '700': '#374151',
+        '800': '#252f3f',
+        '900': '#161e2e',
+    },
+
+    red: {
+        100: '#fff5f5',
+        200: '#fed7d7',
+        300: '#feb2b2',
+        400: '#fc8181',
+        500: '#f56565',
+        600: '#e53e3e',
+        700: '#c53030',
+        800: '#9b2c2c',
+        900: '#742a2a',
+        1000: '#f43f5e',
+        1100: '#be123c',
+        1200: '#9f1239',
+    },
+
+    orange: {
+        100: '#fffaf0',
+        200: '#feebc8',
+        300: '#fbd38d',
+        400: '#f6ad55',
+        500: '#ed8936',
+        600: '#dd6b20',
+        700: '#c05621',
+        800: '#9c4221',
+        900: '#7b341e',
+    },
+
+    green: {
+        100: '#f0fff4',
+        150: '#047857',
+        250: '#059669',
+        350: '#0f766e',
+
+        200: '#c6f6d5',
+        300: '#9ae6b4',
+        400: '#68d391',
+        500: '#48bb78',
+        600: '#38a169',
+        700: '#2f855a',
+        800: '#276749',
+        900: '#22543d',
+    },
+
+    indigo: {
+        100: '#ebf4ff',
+        150: '#cddbfe',
+        200: '#c3dafe',
+        300: '#a3bffa',
+        400: '#7f9cf5',
+        500: '#667eea',
+        600: '#5a67d8',
+        700: '#4c51bf',
+        800: '#434190',
+        900: '#3c366b',
+        950: '#172b4d',
+        1000: '#181818',
+        1100: '#212121',
+        1200: "#F9F9F9",
+
+    },
+
+    blue: {
+        100: '#ebf8ff',
+        200: '#bee3f8',
+        300: '#90cdf4',
+        400: '#63b3ed',
+        500: '#4299e1',
+        600: '#3182ce',
+        750: '#0e7490',
+
+        700: '#2b6cb0',
+        800: '#2c5282',
+        850: '#06b6d4',
+        
+        900: '#2a4365',
+        950: '#22d3ee',
+
+    },
+    
+    yellow: {
+      100: '#fef9c3',
+      200: '#fef08a',
+      300: '#fde047',
+      400: '#facc15',
+      500: '#eab308',
+      600: '#ca8a04',
+      700: '#a16207',
+      800: '#854d0e',
+      900: '#713f12',
+  },
+  lime: {
+    100: '#ecfccb',
+    200: '#d9f99d',
+    300: '#bef264',
+    400: '#a3e635',
+    500: '#84cc16',
+    600: '#65a30d',
+    700: '#4d7c0f',
+    800: '#3f6212',
+    900: '#365314',
+},
+    },
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
   },
   plugins: [],
-};
+}
