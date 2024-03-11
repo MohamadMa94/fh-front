@@ -15,7 +15,7 @@ const [open ,setOpen]= useState(true)
 return (
 <div className="flex mt-5 ml-5">
 
-<div className={`bg-gradient-to-tr from-gray-300 to-gray-300 i justify-aroundh-auto border-8 shadow-2xl border-indigo-100 pb-10 p-8  m-2 pt-16 rounded-3xl h-screen ${open ? "w-96 px-16" : "w-28"}  relative`}>
+<div className={`bg-gradient-to-tr from-white to-indigo-1100 i justify-aroundh-auto border-4 shadow-2xl border-indigo-1000 pb-10 p-8  m-2 pt-16 rounded-3xl h-screen ${open ? "w-96 px-16" : "w-28"}  relative`}>
 
 <BsArrowLeftShort className={`bg-white text-gray-900 text-2xl rounded-full absolute -right-3 top-9 border border-gray-800 ${!open && "rotate-180"}  cursor-pointer`}
 onClick={()=> setOpen(!open)} />
@@ -27,7 +27,7 @@ onClick={()=> setOpen(!open)} />
         </div>
 
         <div className= {` w-36 mt-10 ${!open && "scale-0"}`}>
-          <img class=" w-36 h-36 mb-3 border-2 border-gray-100 shadow-2xl rounded-full  items-center justify-center"  src='https://media.licdn.com/dms/image/D4D03AQGKAFBBBBxwzg/profile-displayphoto-shrink_800_800/0/1708738420234?e=2147483647&v=beta&t=WjOLEVHTMZl8iUNTN7tv0nCC-t0IeZkrfz_8rAqNhGs' alt="صورتي" />
+          <img class=" w-36 h-36 mb-3 border-2 border-gray-100 shadow-2xl rounded-full  items-center justify-center"  src='https://media.licdn.com/dms/image/C4E03AQErY8zfoIZmjQ/profile-displayphoto-shrink_800_800/0/1656583886883?e=2147483647&v=beta&t=VLqKFg-LCMoNM-BTMP91b4JBYDmL8mazdvjjgaMYA3s' alt="صورتي" />
           
         </div> 
     </div>

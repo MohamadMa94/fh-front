@@ -32,7 +32,7 @@ export function GetUsers() {
   const ListofAllTask = () => {
     const Users = GetUsers();
   return (
-<div class="bg-gradient-to-tr from-white to-white i justify-aroundh-auto  border-4 border-indigo-1100 pt-8 p-8 h-full rounded-2xl">
+<div class=" pt-8 p-8 h-96 rounded-2xl  bg-gray-300">
       <div class="flex-1 px-2 sm:px-0">
       <div class="flex justify-between items-center">
         <h3 class="text-6xl font-bold text-indigo-950">All Task</h3>
@@ -60,21 +60,21 @@ export function GetUsers() {
         </div>
 
         { Users?.map((user) => (
-        <div class="relative group w-full border-l-8 border-green-500  shadow-2xl py-4  px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl  hover:smooth-hover">
-      <h1 className="text-2xl m-2 font-mono text-indigo-950"> {user.task} </h1>
-      <h1 className="text-2xl m-2 font-mono text-indigo-950"> {user.user} </h1>
+        <div class="relative group w-full  bg-gray-200 border-green-500 border-2 shadow-2xl hover:border-8   py-4  px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond  hover:smooth-hover">
+      <h1 className="text-2xl m-2 font-mono text-indigo-1100"> {user.task} </h1>
+      <h1 className="text-2xl m-2 font-mono text-indigo-1100"> {user.user} </h1>
 
-      <span className="text-sm mb-10 ml-2 font-mono text-indigo-950   text-balance"> {user.note} </span>
+      <span className="text-sm mb-10 ml-2 font-mono text-indigo-1100   text-balance"> {user.note} </span>
                                                                                                                          
-    <span className=" justify-end flex  text-sm mr-2 font-mono text-indigo-950   text-balance"> {user.dato}  </span>
+    <span className=" justify-end flex  text-sm mr-2 font-mono text-indigo-1100   text-balance"> {user.dato}  </span>
     <div className="flex justify-between ">
       
     <button className="w-24 text-indigo-100 bg-red-700   font-medium rounded-3xl text-sm  py-3  text-center " type="submit">
           inComplete
         </button> 
             <div className="justify-end flex items-center ">
-            <FaEdit className="text-3xl mr-2 text-indigo-950 justify-end"/>
-        <MdDeleteForever className="text-3xl text-indigo-950 justify-end"/>
+            <FaEdit className="text-3xl mr-2 text-indigo-1100 justify-end"/>
+        <MdDeleteForever className="text-3xl text-indigo-1100 justify-end"/>
 
 
 

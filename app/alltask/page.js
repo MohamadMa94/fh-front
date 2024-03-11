@@ -1,4 +1,4 @@
-import ListofAllTask from "../components/Sidebar/ListofAllTask"
+import ListofAllTask from "../components/ListofAllTask"
 
 
 

@@ -1,5 +1,8 @@
+
 import { Inter } from "next/font/google";
 import "./globals.css";
+
+import Header from "./components/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 
 export const metadata = {
@@ -10,10 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body >
-        <div className="flex bg-indigo-1100">      
-          <Sidebar />        
-          <div className="p-7 w-full ">
+      <body > 
+        <div className="flex  bg-gray-300">    
+        <Sidebar />
+          <div className="w-full ">
             {children}
           </div>
 
