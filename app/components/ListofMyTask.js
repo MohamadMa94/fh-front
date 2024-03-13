@@ -8,7 +8,7 @@ export function GetTasks() {
   const [tasks, setTasks] = useState([]);
  
   useEffect(() => {
-    fetch("https://localhost:7181/TaskAs/AllTasks/"+ localStorage.getItem("familyId"), {
+    fetch("https://localhost:7181/TaskAs/UserTask/"+ localStorage.getItem("name"), {
       method: "GET",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("Token"),
@@ -33,7 +33,7 @@ export function GetTasks() {
   return tasks;
 }
 
-const ListofAllTasks = () => {
+const ListofMyTask = () => {
   const tasks = GetTasks();
 
 
@@ -41,7 +41,7 @@ const ListofAllTasks = () => {
     <div className="pt-8 ml-12 rounded-2xl bg-gray-300">
       <div className="flex-1 px-2 sm:px-0">
         <div className="flex justify-between items-center">
-          <h3 className="text-6xl font-bold text-indigo-950">All Tasks</h3>
+          <h3 className="text-6xl font-bold text-indigo-950">My Tasks</h3>
           <div className="inline-flex items-center space-x-2">
             <a
               className="bg-gray-900 text-white/50 p-2 rounded-md hover:text-white smooth-hover"
@@ -149,4 +149,4 @@ const ListofAllTasks = () => {
   );
 };
 
-export default ListofAllTasks;
+export default ListofMyTask;

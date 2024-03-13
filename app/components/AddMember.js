@@ -3,39 +3,13 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 import  Link  from "next/link";
-const Addtask = ({exercise}) => {
+const AddMember = () => {
     const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [deadline, setDeadline] = useState("");
-    const [prioritet, setPrioritet] = useState("");
-    const [Clients, setClients] = useState([]);
-
-    const [completed, setCompleted] = useState(false);
-    const [username, setUserName] = useState("");
-    useEffect(() => { function GetUsers() {
-        fetch('https://localhost:7181/api/Account/'+localStorage.getItem("familyId"), {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("Token"),
-            "Content-Type": "application/json",
-          },
-        })
-          .then((res) => {
-            if (!res.ok) {
-              throw new Error("Not Found");
-            }
-            return res.json();
-          })
-          .then((data) => {
-            console.log(data);
-            setClients(data);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-        };
-        GetUsers();
-      }, []);
+    const [age, setAge] = useState("");
+    const [password, setPassword] = useState("");
+    const [hasFamily, setHasFamily] = useState(true);
+    const [email, setEmail] = useState("");
+    
     const router = useRouter()    
     const handleuserId = (e) => {
       setUserName(e.target.value);
@@ -45,14 +19,13 @@ const Addtask = ({exercise}) => {
       const post = {
         "name" : name,
         "familyId": localStorage.getItem("familyId"),
-        "description": description,
-        "deadline": deadline,
-        "prioritet": prioritet,
-        "completed": completed,
-        "userName": username
+        "age": age,
+        "email": email,
+        "hasFamily": hasFamily,
+        "password": password,
 
       };
-      fetch("https://localhost:7181/createTask", {
+      fetch("https://localhost:7181/api/Account/CreateMember", {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({
@@ -63,15 +36,15 @@ const Addtask = ({exercise}) => {
     })
     .then(response => {
         if(!response.ok){
-            alert("Couldn't create Task");
+            alert("Couldn't create member");
         }
         else{
             return response.json();
         }
     })
     .then(
-      () => { alert("Task succesfully created"); 
-      router.push('/alltask');
+      () => { alert("member succesfully created"); 
+      router.push('/member');
     }
      
   )
@@ -85,7 +58,7 @@ const Addtask = ({exercise}) => {
              <div class="w-full bg-white rounded-3xl shadow-2xl dark:border md:mt-0 sm:max-w-md  dark:bg-gray-800 dark:border-gray-700">
                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-indigo-950 md:text-2xl dark:text-white"> Create a task  </h1>
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-indigo-950 md:text-2xl dark:text-white"> Create a member  </h1>
          <form class="space-y-4 md:space-y-6" onSubmit={handleForm}>     
           <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white">Name </label>
           <input
@@ -96,41 +69,35 @@ const Addtask = ({exercise}) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-        <label class="block mb-2 text-lg font-semibold text-indigo-950 dark:text-white">Prioritet</label>
-        <select
-        required
-        class="bg-gray-50 border border-gray-300 text-s sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        value={prioritet}
-        onChange={(e) => setPrioritet(e.target.value)}
-        >
-        <option value="high">High</option>
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        </select>
-   <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white">Deadline </label>
+         <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white">Email </label>
           <input
-            type="date"
+            type="email"
             required
             class="bg-gray-50 border border-gray-300 text-s sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
 
-            value={deadline}
-            onChange={(e) => setDeadline(e.target.value)}
-          />      <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white"> Member </label>
-              <select class="block mb-2 text-lg font-semibold text-indigo-950 border-4 rounded-lg p-2  dark:text-white" onChange={handleuserId}>
-                {Clients?.map((client, i) => (
-                    <option  key={i} value={client.name }>  {client.name} </option>
-                ))}
-            </select>   
-          <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white"> Description </label>
-          <input
-            type="name"
-            required
-            class="bg-gray-50 border border-gray-300 text-s sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          
+   <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white">Age </label>
+          <input
+            type="text"
+            required
+            class="bg-gray-50 border border-gray-300 text-s sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          />     
+
+<label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white">Password </label>
+          <input
+            type="password"
+            required
+            class="bg-gray-50 border border-gray-300 text-s sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          /> 
+    
            
            <div className=' flex items-center justify-items-start'>
            <Link href={"/alltask"} onClick={()=> { 
@@ -151,4 +118,4 @@ const Addtask = ({exercise}) => {
     );
   };
         
-export default Addtask;
+export default AddMember;

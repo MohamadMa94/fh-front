@@ -34,8 +34,10 @@ const Header = () => {
               <div>      
                 <Link href={"/login"} onClick={()=> { localStorage.removeItem('Token')
                   localStorage.removeItem('userId')
-                  localStorage.removeItem('accountType')
+                  localStorage.removeItem('familyId')
                   localStorage.removeItem('UserEmail')
+
+                  
                   router.push('/login');      
                 } }  class=" text-indigo-950 border-indigo-100 font-bold border-4 hover:bg-red-600  bg-white hover:text-white focus:ring-4 focus:ring-gray-300  rounded-lg text-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
                     Log out 
@@ -55,7 +57,7 @@ const Header = () => {
           <MdDashboard className='mr-3 mt- text-3xl' />  Dashboard </Link>
           </li>
           <li>
-          <Link href={"/alltask"}class="block py-2 flex mr-10 pr-4 pl-3 text-gray-100 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white text-2xl hover:text-yellow-500 lg:dark:hover:bg-transparent dark:border-gray-700">        
+          <Link href={"/member"}class="block py-2 flex mr-10 pr-4 pl-3 text-gray-100 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white text-2xl hover:text-yellow-500 lg:dark:hover:bg-transparent dark:border-gray-700">        
           
              <FaUsersLine className='mr-3 mt-1 text-3xl' /> Members </Link>
           </li>

@@ -29,6 +29,7 @@ const Login = () => {
           if (user.email === localStorage.getItem("UserEmail")) {
             localStorage.setItem("userId", user.userId);
             localStorage.setItem("familyId", user.familyId);
+            localStorage.setItem("name", user.name);
 
                  if(!user.hasFamily){
 

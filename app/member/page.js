@@ -1,16 +1,13 @@
-import Sidebar from "../components/Sidebar/Sidebar"
 import Header from "../components/Header"
-
-import AuthProvider from "../components/AuthProvider,"
+import ListOfMember from "../components/ListOfMember"
 export default   function DashboardPage() {   
     return (
    <div>  
 <div className="flex flex-col bg-gray-300 ">
-         <AuthProvider/>
-
          <Header/>
          <div className="flex">
-      <Sidebar/>
+         <ListOfMember/>
+
       </div>
       </div>
       </div> 
