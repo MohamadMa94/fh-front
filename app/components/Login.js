@@ -1,23 +1,15 @@
 "use client";
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'
+import  Link  from "next/link";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const router = useRouter()
-  function Navigation() {
-    if(localStorage.getItem("accountType")=== "Manager")
-    {
-    router.push('/manager')
-    }else if(localStorage.getItem("accountType")=== "PersonalTrainer")
-    {
-      router.push('/trainer')
-    } else if(localStorage.getItem("accountType")=== "Client")
-    {
-      router.push('/user')
-    }}
+  
   function  SetUser () {
-    fetch("https://afefitness2023.azurewebsites.net/api/Users",
+    fetch("https://localhost:7181/api/Account",
      {
       method: "GET",
       headers: {
@@ -35,11 +27,19 @@ const Login = () => {
         console.log(data);
         data.forEach((user) => {
           if (user.email === localStorage.getItem("UserEmail")) {
-            localStorage.setItem("accountType", user.accountType);
-            localStorage.setItem("userId", user.userId.toString());
-            localStorage.setItem("FirstName", user.firstName);
-            localStorage.setItem("LastName", user.lastName);            
-            Navigation() 
+            localStorage.setItem("userId", user.userId);
+            localStorage.setItem("familyId", user.familyId);
+
+                 if(!user.hasFamily){
+
+                  router.push('/addfamliy')
+
+
+                 } 
+                 else{
+                  router.push('/dashboard')
+
+                 }
           }
         });
       })
@@ -49,7 +49,7 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    let url = "https://afefitness2023.azurewebsites.net/api/Users/login";
+    let url = "https://localhost:7181/api/Account/login";
     let user = {
       email: email,
       password: Password,
@@ -83,6 +83,7 @@ const Login = () => {
               console.log("login successful");
               localStorage.setItem("Token", token.jwt);
               localStorage.setItem("UserEmail", email);
+
               SetUser();
             }
           }
@@ -128,6 +129,8 @@ const Login = () => {
 							<input class="pl-2 outline-none border-none"      type="Password"        required        placeholder="Password"        value={Password}    onChange={(e) => setPassword(e.target.value)}/>
       </div>
 							<button type="submit" class="block w-full text-gray-500 border-4 border-red-300 mt-4 py-2 rounded-xl font-semibold mb-2">Login</button>
+              <Link  href={"/signup"} class="block w-full text-gray-500 border-4 items-center text-center border-green-300 mt-4 py-2 rounded-xl font-semibold mb-2">Sign Up</Link>
+
 		</form>
 	</div>
 </div>

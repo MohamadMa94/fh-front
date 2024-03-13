@@ -8,11 +8,12 @@ import { GoTasklist } from "react-icons/go";
 import { FaVoteYea } from "react-icons/fa";
 import { BsListTask } from "react-icons/bs";
 import { FaUsersLine } from "react-icons/fa6";
-import { IoLogOut } from "react-icons/io5";
+import { MdEditSquare } from "react-icons/md";
 
 export default function Sidebar() {
 const [open ,setOpen]= useState(true)
 return (
+       
 <div className="flex mt-5 ml-5">
 
 <div className={`bg-gradient-to-tr from-gray-300 to-gray-300 i justify-aroundh-auto border-8 shadow-2xl border-indigo-100 pb-10 p-8  m-2 pt-16 rounded-3xl h-screen ${open ? "w-96 px-16" : "w-28"}  relative`}>
@@ -37,13 +38,9 @@ onClick={()=> setOpen(!open)} />
 {/* className={`${!open && "scale-0"}`} */}
 
       <ul class={` flex flex-col mt-12 `}>
-      <li className="inline-flex py-10">
-    <Link href={"/alltask"}>
-    <FaUsersLine   className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
-           <h1 className={` font-bold  mx-36 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white w-full text-2xl  ${!open && "scale-0"}`} > Users  </h1> </Link>
-    </li>
+
     <li className="inline-flex py-10">
-    <Link href={"/user"}>
+    <Link href={"/alltask"}>
     <BsListTask  className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
            <h1 className={` font-bold  mx-36 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white w-full text-2xl  ${!open && "scale-0"}`} > All Task  </h1> </Link>
     </li>
@@ -59,8 +56,8 @@ onClick={()=> setOpen(!open)} />
     </li>
     <li className="inline-flex py-10">
     <Link href={"/"}>
-    <IoLogOut  className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
-           <h1 className={` font-bold mx-36 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white text-2xl ${!open && "scale-0"}`}  aria-current="page"> Log out </h1> </Link>
+    <MdEditSquare   className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
+           <h1 className={` font-bold mx-36 w-40 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white text-2xl ${!open && "scale-0"}`}  aria-current="page"> Edit profile </h1> </Link>
     </li>
 </ul>
 

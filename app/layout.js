@@ -2,8 +2,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
 
 export const metadata = {
   title: "FamilyHub",
@@ -15,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body > 
         <div className="flex  bg-gray-300">    
-        <Sidebar />
+
           <div className="w-full ">
             {children}
           </div>
