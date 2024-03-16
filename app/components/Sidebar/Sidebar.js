@@ -50,7 +50,7 @@ onClick={()=> setOpen(!open)} />
            <h1 className={` font-bold  mx-36 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white text-2xl ${!open && "scale-0"}`}  aria-current="page"> Task </h1> </Link>
     </li>
     <li className="inline-flex py-10">
-    <Link href={"/vote"}>
+    <Link href={"/poll"}>
     <FaVoteYea  className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
            <h1 className={` font-bold mx-36 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white text-2xl ${!open && "scale-0"}`}  aria-current="page"> Voteing </h1> </Link>
     </li>
