@@ -3,45 +3,17 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 import  Link  from "next/link";
-const AddPoll = () => {
+const AddOption = ({addOption}) => {
     const [option, setOption] = useState("");
-    const [Clients, setClients] = useState([]);
 
-    const [username, setUserName] = useState("");
-    useEffect(() => { function GetUsers() {
-        fetch('https://localhost:7181/Polls/AllPolls/'+ localStorage.getItem("familyId"), {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("Token"),
-            "Content-Type": "application/json",
-          },
-        })
-          .then((res) => {
-            if (!res.ok) {
-              throw new Error("Not Found");
-            }
-            return res.json();
-          })
-          .then((data) => {
-            console.log(data);
-            setClients(data);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-        };
-        GetUsers();
-      }, []);
     const router = useRouter()    
-    const handleuserId = (e) => {
-      setUserName(e.target.value);
-      }
+
     const handleForm = (e) => {
       e.preventDefault();
       const post = {
         "optionText" : option,
    
-        "pollId": username
+        "pollId": addOption
 
       };
       fetch("https://localhost:7181/CreateOptions", {
@@ -55,15 +27,12 @@ const AddPoll = () => {
     })
     .then(response => {
         if(!response.ok){
-            alert("Couldn't create Task");
+            alert("Couldn't create option");
         }
         else{
-            return response.json();
+            return  alert("option succesfully created"),             router.push("/poll");
         }
-    })
-    .then(
-      () => { alert("Task succesfully created"); 
-      router.push('/alltask');
+  
     }
      
   )
@@ -90,17 +59,12 @@ const AddPoll = () => {
           />
   
       
-   <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white"> Choose Poll </label>
-              <select class="block mb-2 text-lg font-semibold text-indigo-950 border-4 rounded-lg p-2  dark:text-white" onChange={handleuserId}>
-                {Clients?.map((client, i) => (
-                    <option  key={i} value={client.id }>  {client.title} </option>
-                ))}
-            </select>   
+   
           
           
            
            <div className=' flex items-center justify-items-start'>
-           <Link href={"/alltask"} onClick={()=> { 
+           <Link href={"/poll"} onClick={()=> { 
                 } }  class="w-full mr-4 text-lg  hover:text-white text-indigo-950  border-4 border-indigo-950 font-semibold hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-primary-300  rounded-lg px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" >
                    Cansel
                 </Link>  
@@ -118,4 +82,4 @@ const AddPoll = () => {
     );
   };
         
-export default AddPoll;
+export default AddOption;

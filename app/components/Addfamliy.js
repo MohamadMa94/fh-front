@@ -21,8 +21,7 @@ const Addfamliy = ({exercise}) => {
             "Content-Type": "application/json",
             "Accept": "application/json"
         })
-    })
-    .then(response => {
+    }).then(response => {
         if(!response.ok){
             alert("Couldn't create Famliy");
         }

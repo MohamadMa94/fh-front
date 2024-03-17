@@ -44,53 +44,16 @@ const ListofPoll = () => {
         <div className="flex justify-between items-center">
           <h3 className="text-6xl font-bold text-indigo-950">Polls</h3>
           <div className="inline-flex items-center space-x-2">
-            <a
-              className="bg-gray-900 text-white/50 p-2 rounded-md hover:text-white smooth-hover"
-              href="#"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                />
-              </svg>
-            </a>
-            <a
-              className="bg-gray-900 text-white/50 p-2 rounded-md hover:text-white smooth-hover"
-              href="#"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 10h16M4 14h16M4 18h16"
-                />
-              </svg>
-            </a>
+
           </div>
         </div>
         <div className="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <Link
             href={"/poll/addpoll"}
-            className="group border-4 bg-white border-indigo-1100 py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-3xl hover:bg-gray-900/40 hover:smooth-hover"
+            className="group border-4 bg-white border-indigo-1100 py-4 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-3xl hover:bg-gray-900/40 hover:smooth-hover"
           >
             <a
-              className="bg-gray-900/70 text-white/50 group-hover:text-white group-hover:smooth-hover flex w-20 h-20 rounded-full items-center justify-center"
+              className="bg-gray-900/70 text-white/50 group-hover:text-white group-hover:smooth-hover flex mt-10  w-20 h-20 rounded-full items-center justify-center"
               href="#"
             >
               <svg
@@ -117,33 +80,31 @@ const ListofPoll = () => {
           </Link>
 
           {tasks.map((task) => (
+
             <div
               key={task.id}
-              className="relative group w-full bg-gray-200 border-green-500 border-2 shadow-2xl hover:border-8 py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
+              className="relative group w-full bg-gray-800 border-green-500 border-2 shadow-2xl hover:border-8 py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
             >
-              <h1 className="text-2xl m-2 font-mono text-indigo-1100">
+              <h1 className="text-2xl m-2 text-center font-mono text-white">
                 {task.title}
               </h1>
-              <h1 className="text-2xl m-2 font-mono text-indigo-1100">
-                {task.userName}
-              </h1>
-              <span className="text-sm mb-10 ml-2 font-mono text-indigo-1100 text-balance">
-                {task.description}
-              </span>
-              <span className="justify-end flex text-sm mr-2 font-mono text-indigo-1100 text-balance">
-                {new Date(task.deadline).toLocaleDateString()}
-              </span>
-              <div className="flex justify-between">
-                <button className="w-24 text-indigo-100 bg-red-700 font-medium rounded-3xl text-sm py-3 text-center" type="submit">
-                  {task.completed}
-                </button>
-                <div className="justify-end flex items-center">
-                  <FaEdit className="text-3xl mr-2 text-indigo-1100 justify-end" />
-                  <MdDeleteForever className="text-3xl text-indigo-1100 justify-end" />
+        
+      
+              <div className=" flex py-3 ">
+              <Link href={"/poll/"+task.id} onClick={()=> { 
+                } }  class="w-full  text-lg  bg-white mr-4 hover:text-white text-indigo-950  border-4 border-indigo-950 font-semibold hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-primary-300  rounded-lg px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" >
+                  Vote
+                </Link>  
+              <Link href={"/poll/addoption/"+task.id} onClick={()=> { 
+                } }  class="w-full  text-lg  bg-white  hover:text-white text-indigo-950  border-4 border-indigo-950 font-semibold hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-primary-300  rounded-lg px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" >
+                   Add option
+                </Link>  
                 </div>
-              </div>
             </div>
+         
+
           ))}
+
         </div>
       </div>
     </div>
