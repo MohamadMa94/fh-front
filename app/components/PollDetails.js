@@ -91,24 +91,30 @@ export function PollDetails({ pollDetails }) {
   }
 
   return (
-<div class="flex flex-col w-2/3  bg-white p-10 rounded-2xl ml-28 items-center justify-between mt-60 my-8">
+<div class="flex flex-col w-2/3  bg-gray-300  px-10 rounded-2xl ml-28 items-center justify-between mt-60 my-8">
       
-    <div class="w-1/5 mr-10 py-10  flex  flex-col items-center justify-center rounded-3xl border-4 border-indigo-950  bg-indigo-950">
+    <div class="w-3/5 mr-10 py-10    flex  flex-col items-center justify-center rounded-full border-8 border-white bg-gray-800">
         <div>
-        <p class="font-semibold p-2 my-5 text-white text-2xl"> {data?.title} </p>
-
-  
-    </div>
-    <form onSubmit={handleForm}>
-
-    <select class="block mb-2 text-lg font-semibold text-indigo-950 border-4 rounded-lg p-2  dark:text-white" onChange={handleOptionId}>
+        <p class="font-semibold item-center  text-white mb-10 text-3xl"> {data?.title} </p>
+        <select class=" flex justify-center w-52 mr-4 item-center mb-6 text-lg font-semibold text-indigo-950 border-4 rounded-lg p-2  dark:text-white" onChange={handleOptionId}>
                 {option?.map((option, i) => (
                     <option  key={i} value={option.id }>  {option.optionText} </option>
                 ))}
             </select> 
-            <button   className="w-full bg-white text-indigo-950 text-lg  hover:text-white hover:bg-green-500  border-4  border-indigo-950 font-semibold focus:ring-4 focus:outline-none focus:ring-primary-300  rounded-lg px-8 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">
-          vote  
+  
+    </div>
+    <form onSubmit={handleForm}>
+
+ 
+            <div className="flex justify-between items-center">
+            <button  class="w-full mr-4 text-lg  hover:text-white text-indigo-950 bg-white  border-4 border-indigo-950 font-semibold hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-primary-300  rounded-lg px-6 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"  type="submit">
+          Vote  
           </button>    
+          <Link href={"/poll"} onClick={()=> { 
+                } }  class="w-full mr-4 text-lg  hover:text-white text-indigo-950 bg-white  border-4 border-indigo-950 font-semibold hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-primary-300  rounded-lg px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" >
+                   Cansel
+                </Link>  
+                </div>
           </form>
 
     </div>

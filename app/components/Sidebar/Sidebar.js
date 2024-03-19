@@ -7,8 +7,9 @@ import  Link  from "next/link";
 import { GoTasklist } from "react-icons/go";
 import { FaVoteYea } from "react-icons/fa";
 import { BsListTask } from "react-icons/bs";
-import { FaUsersLine } from "react-icons/fa6";
-import { MdEditSquare } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { RiTaskFill } from "react-icons/ri";
+import { IoLogOut } from "react-icons/io5";
 
 export default function Sidebar() {
 const [open ,setOpen]= useState(true)
@@ -27,10 +28,6 @@ onClick={()=> setOpen(!open)} />
         <h1 className={` text-indigo-1000 origin-left item-center  font-bold text-5xl duration-300 m-1 ${!open && "scale-0"}`}>FamilyHub</h1>
         </div>
 
-        <div className= {` w-36 mt-10 ${!open && "scale-0"}`}>
-          <img class=" w-36 h-36 mb-3 border-2 border-gray-100 shadow-2xl rounded-full  items-center justify-center"  src='https://media.licdn.com/dms/image/D4D03AQGKAFBBBBxwzg/profile-displayphoto-shrink_800_800/0/1708738420234?e=2147483647&v=beta&t=WjOLEVHTMZl8iUNTN7tv0nCC-t0IeZkrfz_8rAqNhGs' alt="صورتي" />
-          
-        </div> 
     </div>
     
 <div  className={` flex items-center rounded-md  `}>
@@ -42,23 +39,42 @@ onClick={()=> setOpen(!open)} />
     <li className="inline-flex py-10">
     <Link href={"/alltask"}>
     <BsListTask  className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
-           <h1 className={` font-bold  mx-36 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white w-full text-2xl  ${!open && "scale-0"}`} > All Task  </h1> </Link>
-    </li>
-    <li className="inline-flex py-10">
+           <h1 className={` font-bold  mx-36 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white w-full text-2xl  ${!open && "scale-0"}`} >Family tasks  </h1> </Link>
+    </li> 
+     <li className="inline-flex py-10">
     <Link href={"/mytask"}>
     <GoTasklist  className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
-           <h1 className={` font-bold  mx-36 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white text-2xl ${!open && "scale-0"}`}  aria-current="page"> Task </h1> </Link>
+           <h1 className={` font-bold  mx-36 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white text-2xl ${!open && "scale-0"}`}  aria-current="page"> My task </h1> </Link>
+    </li>
+    <li className="inline-flex py-10">
+    <Link href={"/mytask/completed"}>
+    <RiTaskFill    className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
+           <h1 className={` font-bold  mx-36 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white text-2xl ${!open && "scale-0"}`}  aria-current="page">Completed </h1> </Link>
     </li>
     <li className="inline-flex py-10">
     <Link href={"/poll"}>
     <FaVoteYea  className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
            <h1 className={` font-bold mx-36 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white text-2xl ${!open && "scale-0"}`}  aria-current="page"> Voteing </h1> </Link>
     </li>
+    
     <li className="inline-flex py-10">
-    <Link href={"/"}>
-    <MdEditSquare   className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
-           <h1 className={` font-bold mx-36 w-40 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white text-2xl ${!open && "scale-0"}`}  aria-current="page"> Edit profile </h1> </Link>
+    <Link href={"/dashboard/changepassword"}>
+    <RiLockPasswordFill    className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
+           <h1 className={` font-bold mx-20 w-60 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white text-2xl ${!open && "scale-0"}`}  aria-current="page"> Change password </h1> </Link>
     </li>
+    <li className="inline-flex py-10">
+    <Link href={"/login"} onClick={()=> { localStorage.removeItem('Token')
+                  localStorage.removeItem('userId')
+                  localStorage.removeItem('familyId')
+                  localStorage.removeItem('UserEmail')
+
+                  
+                  router.push('/login');      
+                } } > 
+    <IoLogOut     className= {` text-3xl  rounded text-indigo-950 font-bold   cursor-pointer block float-left mr-6 duration-500 ${!open && " ml-2 rotate-[360deg]"}`}  />
+           <h1 className={` font-bold mx-36 w-40 text-indigo-1000  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white text-2xl ${!open && "scale-0"}`}  aria-current="page"> Log out </h1> </Link>
+    </li>
+
 </ul>
 
 </div>

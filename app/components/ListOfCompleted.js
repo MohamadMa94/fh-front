@@ -8,7 +8,7 @@ export function GetTasks() {
   const [tasks, setTasks] = useState([]);
  
   useEffect(() => {
-    fetch("https://localhost:7181/TaskAs/AllTasks/"+ localStorage.getItem("familyId"), {
+    fetch("https://localhost:7181/TaskAs/UserCompletedTasks/"+ localStorage.getItem("name"), {
       method: "GET",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("Token"),
@@ -33,7 +33,7 @@ export function GetTasks() {
   return tasks;
 }
 
-const ListofAllTasks = () => {
+const ListOfCompleted = () => {
   const tasks = GetTasks();
 
 
@@ -41,40 +41,11 @@ const ListofAllTasks = () => {
     <div className="pt-8 ml-12 rounded-2xl bg-gray-300">
       <div className="flex-1 px-2 sm:px-0">
         <div className="flex justify-between items-center">
-          <h3 className="text-6xl font-bold text-indigo-950">Family tasks</h3>
-         
+          <h3 className="text-6xl font-bold text-indigo-950">Completed tasks</h3>
+       
         </div>
         <div className="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <Link
-            href={"/alltask/addtask"}
-            className="group border-4 bg-white border-indigo-1100 py-4 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-3xl hover:bg-gray-900/40 hover:smooth-hover"
-            >
-              <a
-                className="bg-gray-900/70 text-white/50 group-hover:text-white group-hover:smooth-hover flex mt-10  w-20 h-20 rounded-full items-center justify-center"
-                href="#"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1"
-                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                  />
-                </svg>
-              </a>
-              <a
-                className="text-white/50 group-hover:text-white group-hover:smooth-hover text-center"
-                href="#"
-              >
-                Create Task
-              </a>
-            </Link>
+
 
           {tasks.map((task) => (
             <div
@@ -93,7 +64,7 @@ const ListofAllTasks = () => {
               <span className="justify-end flex text-sm mr-2 font-mono text-indigo-1100 text-balance">
                 {new Date(task.deadline).toLocaleDateString()}
               </span>
-           
+          
             </div>
           ))}
         </div>
@@ -102,4 +73,4 @@ const ListofAllTasks = () => {
   );
 };
 
-export default ListofAllTasks;
+export default ListOfCompleted;

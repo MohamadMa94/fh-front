@@ -75,7 +75,7 @@ const ListofPoll = () => {
               className="text-white/50 group-hover:text-white group-hover:smooth-hover text-center"
               href="#"
             >
-              Create Task
+              Create poll
             </a>
           </Link>
 
