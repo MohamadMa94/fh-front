@@ -9,7 +9,7 @@ export function GetTasks() {
   const [tasks, setTasks] = useState([]);
  
   useEffect(() => {
-    fetch("https://localhost:7181/Polls/AllPolls/"+ localStorage.getItem("familyId"), {
+    fetch("https://localhost:7181/api/Polls/AllPolls/"+ localStorage.getItem("familyId"), {
       method: "GET",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("Token"),

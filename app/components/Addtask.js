@@ -52,7 +52,7 @@ const Addtask = ({exercise}) => {
         "userName": username
 
       };
-      fetch("https://localhost:7181/createTask", {
+      fetch("https://localhost:7181//api/TaskAscreateTask", {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({

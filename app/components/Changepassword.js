@@ -18,7 +18,7 @@ const Changepassword = () => {
         "password": password,
 
       };
-      fetch("https://localhost:7181/api/Account/Password", {
+      fetch("https://localhost:7181/api/Account/ChangePassword", {
         method: "PUT",
         body: JSON.stringify(post),
         headers: new Headers({

@@ -7,7 +7,7 @@ const AuthProvider = () => {
         if(!localStorage.getItem("Token")){
             router.push('/login');
         }function  SetUser () {
-          fetch("https://localhost:7181/api/Account",
+          fetch("https://localhost:7181/api/Families",
            {
             method: "GET",
             headers: {

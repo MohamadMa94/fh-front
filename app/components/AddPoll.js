@@ -39,7 +39,7 @@ const AddPoll = () => {
         "familyId": localStorage.getItem("familyId"),
   
       };
-      fetch("https://localhost:7181/createPoll", {
+      fetch("https://localhost:7181/api/Polls/createPoll", {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({

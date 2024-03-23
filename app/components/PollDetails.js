@@ -17,7 +17,7 @@ export function PollDetails({ pollDetails }) {
     "userId": localStorage.getItem("userId")
 
   };
-  fetch("https://localhost:7181/vote/"+pollDetails, {
+  fetch("https://localhost:7181/api/Polls/vote/"+pollDetails, {
         method: "POST",
     body: JSON.stringify(post),
     headers: new Headers({
@@ -40,7 +40,7 @@ export function PollDetails({ pollDetails }) {
 
  
   useEffect(() => {
-    fetch("https://localhost:7181/Polls/"+ pollDetails, {
+    fetch("https://localhost:7181/api/Polls/"+ pollDetails, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("Token"),
@@ -62,7 +62,7 @@ export function PollDetails({ pollDetails }) {
         console.error(error);
         setLoading(false);
       });
-      fetch("https://localhost:7181/Polls/AllOptions/"+ pollDetails, {
+      fetch("https://localhost:7181/api/Polls/AllOptions/"+ pollDetails, {
         method: "GET",
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token"),

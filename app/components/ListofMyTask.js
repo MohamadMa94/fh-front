@@ -6,7 +6,7 @@ import { FaEdit } from "react-icons/fa";
 import Link from "next/link";
 
 const fetchTasks = () => {
-  return fetch("https://localhost:7181/TaskAs/UserUncompletedTasks/" + localStorage.getItem("name"), {
+  return fetch("https://localhost:7181/api/TaskAs/UserUncompletedTasks/" + localStorage.getItem("name"), {
     method: "GET",
     headers: {
       Authorization: "Bearer " + localStorage.getItem("Token"),
@@ -36,7 +36,7 @@ const ListofMyTask = () => {
 
   const handleComplete = (taskId) => {
     const post = { completed: true };
-    fetch("https://localhost:7181/TaskAs/tasks/completed/" + taskId, {
+    fetch("https://localhost:7181/api/TaskAs/tasks/completed/" + taskId, {
       method: "PUT",
       body: JSON.stringify(post),
       headers: {

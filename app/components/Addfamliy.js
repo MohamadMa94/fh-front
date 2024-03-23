@@ -13,7 +13,7 @@ const Addfamliy = ({exercise}) => {
         "name" : name,
         "userId": localStorage.getItem("userId"),
       };
-      fetch("https://localhost:7181/CreateFamily", {
+      fetch("https://localhost:7181/api/Families/CreateFamily", {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({
