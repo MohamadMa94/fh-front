@@ -3,7 +3,6 @@ export default   function LogOutnPage() {
     return (
    <div>  
     <Login/>
-  </div>
+    </div>
     )
   }
-

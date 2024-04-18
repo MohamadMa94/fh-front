@@ -5,8 +5,8 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import Link from "next/link";
 
-export function GetTasks() {
-  const [tasks, setTasks] = useState([]);
+export function GetPolls() {
+  const [polls, setPolls] = useState([]);
  
   useEffect(() => {
     fetch("https://localhost:7181/api/Polls/AllPolls/"+ localStorage.getItem("familyId"), {
@@ -24,22 +24,22 @@ export function GetTasks() {
       })
       .then((data) => {
         console.log(data);
-        setTasks(data);
+        setPolls(data);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
 
-  return tasks;
+  return polls;
 }
 
 const ListofPoll = () => {
-  const tasks = GetTasks();
+  const polls = GetPolls();
 
 
   return (
-    <div className="pt-8 ml-12 rounded-2xl bg-gray-300">
+    <div className="pt-8 ml-12 rounded-2xl ">
       <div className="flex-1 px-2 sm:px-0">
         <div className="flex justify-between items-center">
           <h3 className="text-6xl font-bold text-indigo-950">Polls</h3>
@@ -75,27 +75,27 @@ const ListofPoll = () => {
               className="text-white/50 group-hover:text-white group-hover:smooth-hover text-center"
               href="#"
             >
-              Create poll
+              Create a poll
             </a>
           </Link>
 
-          {tasks.map((task) => (
+          {polls.map((poll) => (
 
             <div
-              key={task.id}
+              key={poll.id}
               className="relative group w-full bg-gray-800 border-green-500 border-2 shadow-2xl hover:border-8 py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
             >
               <h1 className="text-2xl m-2 text-center font-mono text-white">
-                {task.title}
+                {poll.title}
               </h1>
         
       
               <div className=" flex py-3 ">
-              <Link href={"/poll/"+task.id} onClick={()=> { 
+              <Link href={"/poll/"+poll.id} onClick={()=> { 
                 } }  class="w-full  text-lg  bg-white mr-4 hover:text-white text-indigo-950  border-4 border-indigo-950 font-semibold hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-primary-300  rounded-lg px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" >
                   Vote
                 </Link>  
-              <Link href={"/poll/addoption/"+task.id} onClick={()=> { 
+              <Link href={"/poll/addoption/"+poll.id} onClick={()=> { 
                 } }  class="w-full  text-lg  bg-white  hover:text-white text-indigo-950  border-4 border-indigo-950 font-semibold hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-primary-300  rounded-lg px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" >
                    Add option
                 </Link>  

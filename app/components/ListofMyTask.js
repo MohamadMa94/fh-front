@@ -3,9 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-import Link from "next/link";
 
-const fetchTasks = () => {
+const GetTask = () => {
   return fetch("https://localhost:7181/api/TaskAs/UserUncompletedTasks/" + localStorage.getItem("name"), {
     method: "GET",
     headers: {
@@ -29,7 +28,7 @@ const ListofMyTask = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetchTasks().then(tasksData => {
+    GetTask().then(tasksData => {
       setTasks(tasksData);
     });
   }, []);

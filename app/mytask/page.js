@@ -1,13 +1,13 @@
 import Header from "../components/Header"
 import ListofMyTask from "../components/ListofMyTask"
 import Sidebar from "../components/Sidebar/Sidebar"
-import AuthProvider from "../components/AuthProvider,"
+import Dashboard from "../components/Dashboard"
 
 
 export default   function MytaskPage() {   
     return (
       <div className="flex flex-col ">
-        <AuthProvider/>
+        <Dashboard/>
 
          <Header/>
          <div className="flex">

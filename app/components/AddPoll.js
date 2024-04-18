@@ -6,31 +6,7 @@ import  Link  from "next/link";
 const AddPoll = () => {
     const [name, setName] = useState("");
    
-    useEffect(() => { function GetUsers() {
-        fetch('https://localhost:7181/api/Account/'+localStorage.getItem("familyId"), {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("Token"),
-            "Content-Type": "application/json",
-          },
-        })
-          .then((res) => {
-            if (!res.ok) {
-              throw new Error("Not Found");
-            }
-            return res.json();
-          })
-          .then((data) => {
-            console.log(data);
-            setClients(data);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-        };
-        GetUsers();
-      }, []);
-    const router = useRouter()    
+       const router = useRouter()    
    
     const handleForm = (e) => {
       e.preventDefault();
@@ -65,7 +41,7 @@ const AddPoll = () => {
     
 }
     return (
-        <section className="bg-gray-300 dark:bg-gray-900">
+        <section className="bg-Amber-100 dark:bg-gray-900">
 
           <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 

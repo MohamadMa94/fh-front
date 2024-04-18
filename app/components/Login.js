@@ -7,7 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const router = useRouter()
-  
+  var HasFamily 
   function  SetUser () {
     fetch("https://localhost:7181/api/Account",
      {
@@ -30,14 +30,17 @@ const Login = () => {
             localStorage.setItem("userId", user.userId);
             localStorage.setItem("familyId", user.familyId);
             localStorage.setItem("name", user.name);
-
-                 if(!user.hasFamily){
+            HasFamily=user.hasFamily
+                             if( !HasFamily){
+                  console.log(HasFamily);
 
                   router.push('/addfamliy')
 
 
                  } 
                  else{
+                  console.log(HasFamily);
+
                   router.push('/dashboard')
 
                  }
@@ -81,7 +84,7 @@ const Login = () => {
               alert("Wrong login");
             } else {
               let token = result;
-              console.log("login successful");
+              alert("login successful");
               localStorage.setItem("Token", token.jwt);
               localStorage.setItem("UserEmail", email);
 

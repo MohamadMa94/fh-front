@@ -3,12 +3,12 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 import  Link  from "next/link";
-const Addtask = ({exercise}) => {
+const Addtask = () => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [deadline, setDeadline] = useState("");
     const [prioritet, setPrioritet] = useState("");
-    const [Clients, setClients] = useState([]);
+    const [users, setUsers] = useState([]);
 
     const [completed, setCompleted] = useState(false);
     const [username, setUserName] = useState("");
@@ -28,7 +28,7 @@ const Addtask = ({exercise}) => {
           })
           .then((data) => {
             console.log(data);
-            setClients(data);
+            setUsers(data);
           })
           .catch((error) => {
             console.error(error);
@@ -37,7 +37,7 @@ const Addtask = ({exercise}) => {
         GetUsers();
       }, []);
     const router = useRouter()    
-    const handleuserId = (e) => {
+    const handleUserName = (e) => {
       setUserName(e.target.value);
       }
     const handleForm = (e) => {
@@ -52,7 +52,7 @@ const Addtask = ({exercise}) => {
         "userName": username
 
       };
-      fetch("https://localhost:7181//api/TaskAscreateTask", {
+      fetch("https://localhost:7181/api/TaskAs/createTask", {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({
@@ -80,7 +80,7 @@ const Addtask = ({exercise}) => {
     return (
         <section className="bg-gray-300 dark:bg-gray-900">
 
-          <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+          <div class="flex flex-col items-center justify-center px-6 py-10 mx-auto ">
 
              <div class="w-full bg-white rounded-3xl shadow-2xl dark:border md:mt-0 sm:max-w-md  dark:bg-gray-800 dark:border-gray-700">
                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -116,9 +116,9 @@ const Addtask = ({exercise}) => {
             value={deadline}
             onChange={(e) => setDeadline(e.target.value)}
           />      <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white"> Member </label>
-              <select class="block mb-2 text-lg font-semibold text-indigo-950 border-4 rounded-lg p-2  dark:text-white" onChange={handleuserId}>
-                {Clients?.map((client, i) => (
-                    <option  key={i} value={client.name }>  {client.name} </option>
+              <select class="block mb-2 text-lg font-semibold text-indigo-950 border-4 rounded-lg p-2  dark:text-white" onChange={handleUserName}>
+                {users?.map((user, i) => (
+                    <option  key={i} value={user.name }>  {user.name} </option>
                 ))}
             </select>   
           <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white"> Description </label>

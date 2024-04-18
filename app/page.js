@@ -1,11 +1,11 @@
 
 
-import AuthProvider from "./components/AuthProvider,"
+import Dashboard from "./components/Dashboard"
 export default function Home() {
 
   return (
-<div>
-<AuthProvider/>
+<div className="w-full  bg-midnight">
+<Dashboard/>
 
 </div>
   )

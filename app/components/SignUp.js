@@ -6,7 +6,7 @@ import  Link  from "next/link";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [age, setAge] = useState("");
+  const [age, setAge] = useState(0);
   const [name, setName] = useState("");
   const router = useRouter()
 
@@ -31,7 +31,7 @@ const SignUp = () => {
     })
     .then(response => {
         if(!response.ok){
-            throw new Error("Couldn't create User");
+            throw new Error("Email already exists");
         }
         return response.json();
     })

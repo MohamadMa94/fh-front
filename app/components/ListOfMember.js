@@ -16,7 +16,7 @@ export function GetUsers() {
       })
         .then((res) => {
           if (!res.ok) {
-            throw new Error("Not Found");
+            throw new Error("Not found users");
           }
           return res.json();
         })
@@ -32,7 +32,7 @@ export function GetUsers() {
     return Users;
   }
   
-  export  const ListOfMember = ({ user }) => {
+  export  const ListOfMember = ({  }) => {
    const  Users = GetUsers();
 
   return (

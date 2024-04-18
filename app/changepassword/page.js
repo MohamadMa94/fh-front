@@ -1,5 +1,5 @@
 
-import Changepassword from "../../components/Changepassword"
+import Changepassword from "../components/Changepassword"
 
 export default   function changepasswordPage() {   
     return (

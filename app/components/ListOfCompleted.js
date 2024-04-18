@@ -4,7 +4,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import Link from "next/link";
 
-export function GetTasks() {
+export function GetCompletedTasks() {
   const [tasks, setTasks] = useState([]);
  
   useEffect(() => {
@@ -34,7 +34,7 @@ export function GetTasks() {
 }
 
 const ListOfCompleted = () => {
-  const tasks = GetTasks();
+  const tasks = GetCompletedTasks();
 
 
   return (

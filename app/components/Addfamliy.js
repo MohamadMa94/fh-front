@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from "react";
 import { useRouter } from 'next/navigation'
 import  Link  from "next/link";
-const Addfamliy = ({exercise}) => {
+const Addfamliy = ({}) => {
     const [name, setName] = useState("");
  
     const router = useRouter()    
@@ -13,7 +13,7 @@ const Addfamliy = ({exercise}) => {
         "name" : name,
         "userId": localStorage.getItem("userId"),
       };
-      fetch("https://localhost:7181/api/Families/CreateFamily", {
+      fetch("https://localhost:7181/api/Family/CreateFamily", {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({
@@ -26,17 +26,16 @@ const Addfamliy = ({exercise}) => {
             alert("Couldn't create Famliy");
         }
         else{
-            return response.json();
-        }
-    })
-    .then(
-      () => { alert("Famliy succesfully created"); 
-      router.push('/dashboard');
-    }
-     
-  )
+            return  alert("Famliy succesfully created"),
+            router.push('/dashboard');
+          }
+        })
     
-}
+       
+     
+
+      }
+
     return (
         <section className="bg-gray-300 dark:bg-gray-900">
 
