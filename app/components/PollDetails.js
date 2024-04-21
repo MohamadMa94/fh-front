@@ -91,17 +91,17 @@ export function PollDetails({ pollDetails }) {
   }
 
   return (
-<div class="flex flex-col w-2/3  bg-gray-300  px-10 rounded-2xl ml-28 items-center justify-between mt-60 my-8">
+<div class="flex flex-col w-2/3    p-10 rounded-2xl ml-28 items-center justify-between mt-24 my-8">
       
-    <div class="w-3/5 mr-10 py-10    flex  flex-col items-center justify-center rounded-full border-8 border-white bg-gray-800">
+    <div class="w-4/5 py-10    flex  flex-col items-center justify-center rounded-full border-8 border-white ">
         <div>
-        <p class="font-semibold item-center  text-white mb-10 text-3xl"> {data?.title} </p>
-        <select class=" flex justify-center w-52 mr-4 item-center mb-6 text-lg font-semibold text-indigo-950 border-4 rounded-lg p-2  dark:text-white" onChange={handleOptionId}>
+        <p class="font-semibold item-center text-indigo-950 text-center mb-10 text-4xl"> {data?.title} </p>
+   
+        <select class=" flex items-center     mb-6 text-lg font-semibold text-indigo-950 border-4  border-indigo-1100 rounded-lg p-2  dark:text-white" onChange={handleOptionId}>
                 {option?.map((option, i) => (
                     <option  key={i} value={option.id }>  {option.optionText} </option>
                 ))}
             </select> 
-  
     </div>
     <form onSubmit={handleForm}>
 
@@ -120,7 +120,7 @@ export function PollDetails({ pollDetails }) {
     </div>
 
 
-    <div class="flex flex-row w-full  mt-20">
+    <div class="flex flex-row w-full ml-10 mt-20">
 
     {option && option.map((option) => (
             

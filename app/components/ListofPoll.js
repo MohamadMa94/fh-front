@@ -50,7 +50,7 @@ const ListofPoll = () => {
         <div className="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <Link
             href={"/poll/addpoll"}
-            className="group border-4 bg-white border-indigo-1100 py-4 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-3xl hover:bg-gray-900/40 hover:smooth-hover"
+            className="group border-4 bg-white py-4 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-3xl hover:bg-gray-900/40 hover:smooth-hover"
           >
             <a
               className="bg-gray-900/70 text-white/50 group-hover:text-white group-hover:smooth-hover flex mt-10  w-20 h-20 rounded-full items-center justify-center"
@@ -83,9 +83,9 @@ const ListofPoll = () => {
 
             <div
               key={poll.id}
-              className="relative group w-full bg-gray-800 border-green-500 border-2 shadow-2xl hover:border-8 py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
+              className="relative group w-full bg-gray-300 border-2 shadow-2xl hover:border-8 hover:border-blue-800 py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
             >
-              <h1 className="text-2xl m-2 text-center font-mono text-white">
+              <h1 className="text-2xl m-2 text-center font-mono text-indigo-1100 ">
                 {poll.title}
               </h1>
         

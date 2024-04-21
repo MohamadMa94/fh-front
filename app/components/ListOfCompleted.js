@@ -38,7 +38,7 @@ const ListOfCompleted = () => {
 
 
   return (
-    <div className="pt-8 ml-12 rounded-2xl bg-gray-300">
+    <div className="pt-8 ml-12 rounded-2xl ">
       <div className="flex-1 px-2 sm:px-0">
         <div className="flex justify-between items-center">
           <h3 className="text-6xl font-bold text-indigo-950">Completed tasks</h3>
@@ -50,18 +50,18 @@ const ListOfCompleted = () => {
           {tasks.map((task) => (
             <div
               key={task.id}
-              className="relative group w-full bg-gray-200 border-green-500 border-2 shadow-2xl hover:border-8 py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
+              className="relative group w-full bg-gray-200 hover:border-red-500 border-2 shadow-2xl hover:border-8 py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
             >
-              <h1 className="text-2xl m-2 font-mono text-indigo-1100">
+              <h1 className="text-3xl m-2 font-mono text-indigo-1100">
                 {task.name}
               </h1>
-              <h1 className="text-2xl m-2 font-mono text-indigo-1100">
+              <h1 className="text-3xl m-2 font-mono text-indigo-1100">
                 {task.userName}
               </h1>
-              <span className="text-sm mb-10 ml-2 font-mono text-indigo-1100 text-balance">
+              <span className="text-xl mb-10 ml-2 font-mono text-indigo-1100 text-balance">
                 {task.description}
               </span>
-              <span className="justify-end flex text-sm mr-2 font-mono text-indigo-1100 text-balance">
+              <span className="justify-end flex text-xl mr-2 font-mono text-indigo-1100 text-balance">
                 {new Date(task.deadline).toLocaleDateString()}
               </span>
           

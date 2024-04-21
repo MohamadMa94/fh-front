@@ -43,12 +43,12 @@ const AddPoll = () => {
     return (
         <section className="bg-Amber-100 dark:bg-gray-900">
 
-          <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+          <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto mt-40 lg:py-0">
 
              <div class="w-full bg-white rounded-3xl shadow-2xl dark:border md:mt-0 sm:max-w-md  dark:bg-gray-800 dark:border-gray-700">
                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-indigo-950 md:text-2xl dark:text-white"> Create a task  </h1>
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-indigo-950 md:text-2xl dark:text-white"> Create a poll  </h1>
          <form class="space-y-4 md:space-y-6" onSubmit={handleForm}>     
           <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white">Name </label>
           <input

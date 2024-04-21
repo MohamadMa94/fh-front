@@ -2,7 +2,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header"
-import Sidebar from "./components/Sidebar/Sidebar"
 import Dashboard from "./components/Dashboard"
 
 export const metadata = {
@@ -22,7 +21,6 @@ export default function RootLayout({ children }) {
         <Header/>
         <div className="flex">
 
-        <Sidebar/>
 
           <div className="w-full ">
             {children}

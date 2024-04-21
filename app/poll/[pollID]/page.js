@@ -8,7 +8,6 @@ console.log(params.pollID);
 return(
     <div className="flex flex-col ">
   
-    <Header/>
     <div className="flex">
  <Sidebar/>
    <div className="w-full">

@@ -22,7 +22,7 @@ return (
        
 <div className="flex mt-5 ml-5">
 
-<div className={` bg-gradient-to-tr from-white to-amber-100 i justify-aroundh-auto border-8 shadow-2xl border-indigo-950 pb-16 p-8  m-2 pt-5 rounded-3xl  ${open ? "w-96 px-16" : "w-32"}  relative`}>
+<div className={` bg-gradient-to-tr from-gray-300 to-gray-300i justify-aroundh-auto border-8 shadow-2xl border-indigo-950 pb-16 p-8  m-2 pt-5 rounded-3xl  ${open ? "w-96 px-16" : "w-32"}  relative`}>
 
 <BsArrowLeftShort className={`bg-white text-gray-900 text-2xl rounded-full absolute -right-3 top-9 border border-gray-800 ${!open && "rotate-180"}  cursor-pointer`}
 onClick={()=> setOpen(!open)} />
