@@ -22,7 +22,7 @@ const Changepassword = () => {
         method: "PUT",
         body: JSON.stringify(post),
         headers: new Headers({
-            'Authorization': 'Bearer ' + localStorage.getItem("token"),
+            'Authorization': 'Bearer ' + window.localStorage.getItem("token"),
             "Content-Type": "application/json",
             "Accept": "application/json"
         })

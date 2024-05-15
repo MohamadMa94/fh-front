@@ -8,10 +8,10 @@ export function GetTasks() {
   const [tasks, setTasks] = useState([]);
   
   useEffect(() => {
-    fetch("https://localhost:7181/api/TaskAs/AllTasks/"+ localStorage.getItem("familyId"), {
+    fetch("https://localhost:7181/api/TaskAs/AllTasks/"+ window.localStorage.getItem("familyId"), {
       method: "GET",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
         "Content-Type": "application/json",
       },
     })
@@ -42,7 +42,7 @@ const ListofAllTasks = () => {
       method: "DELETE",
       body: JSON.stringify(post),
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("Token"),
+        Authorization: "Bearer " + window.localStorage.getItem("Token"),
         "Content-Type": "application/json",
         Accept: "application/json",
       },

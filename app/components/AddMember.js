@@ -18,7 +18,7 @@ const AddMember = () => {
       e.preventDefault();
       const post = {
         "name" : name,
-        "familyId": localStorage.getItem("familyId"),
+        "familyId": window.localStorage.getItem("familyId"),
         "age": age,
         "email": email,
         "hasFamily": hasFamily,
@@ -29,7 +29,7 @@ const AddMember = () => {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({
-            'Authorization': 'Bearer ' + localStorage.getItem("token"),
+            'Authorization': 'Bearer ' + window.localStorage.getItem("token"),
             "Content-Type": "application/json",
             "Accept": "application/json"
         })

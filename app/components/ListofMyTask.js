@@ -5,10 +5,10 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 
 const GetTask = () => {
-  return fetch("https://localhost:7181/api/TaskAs/UserUncompletedTasks/" + localStorage.getItem("name"), {
+  return fetch("https://localhost:7181/api/TaskAs/UserUncompletedTasks/" + window.localStorage.getItem("name"), {
     method: "GET",
     headers: {
-      Authorization: "Bearer " + localStorage.getItem("token"),
+      Authorization: "Bearer " + window.localStorage.getItem("token"),
       "Content-Type": "application/json",
     },
   })
@@ -39,7 +39,7 @@ const ListofMyTask = () => {
       method: "PUT",
       body: JSON.stringify(post),
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
         "Content-Type": "application/json",
         Accept: "application/json",
       },
@@ -61,7 +61,7 @@ const ListofMyTask = () => {
       method: "DELETE",
       body: JSON.stringify(post),
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
         "Content-Type": "application/json",
         Accept: "application/json",
       },

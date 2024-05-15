@@ -11,7 +11,7 @@ export default function Header() {
 
   
       useEffect(() => {
-        sethasFamily(localStorage.getItem("hasFamily"))
+        sethasFamily(window.localStorage.getItem("hasFamily"))
         
    }, []);
 

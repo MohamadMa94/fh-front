@@ -11,13 +11,13 @@ const Addfamliy = ({}) => {
       e.preventDefault();
       const post = {
         "name" : name,
-        "userId": localStorage.getItem("userId"),
+        "userId": window.localStorage.getItem("userId"),
       };
       fetch("https://localhost:7181/api/Family/CreateFamily", {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({
-            'Authorization': 'Bearer ' + localStorage.getItem("token"),
+            'Authorization': 'Bearer ' + window.localStorage.getItem("token"),
             "Content-Type": "application/json",
             "Accept": "application/json"
         })

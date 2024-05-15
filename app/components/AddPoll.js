@@ -12,14 +12,14 @@ const AddPoll = () => {
       e.preventDefault();
       const post = {
         "title" : name,
-        "familyId": localStorage.getItem("familyId"),
+        "familyId": window.localStorage.getItem("familyId"),
   
       };
       fetch("https://localhost:7181/api/Polls/createPoll", {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({
-            'Authorization': 'Bearer ' + localStorage.getItem("token"),
+            'Authorization': 'Bearer ' + window.localStorage.getItem("token"),
             "Content-Type": "application/json",
             "Accept": "application/json"
         })

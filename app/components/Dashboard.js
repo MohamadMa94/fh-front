@@ -12,7 +12,7 @@ const Dashboard = () => {
            {
             method: "GET",
             headers: {
-              Authorization: "Bearer " + localStorage.getItem("token"),
+              Authorization: "Bearer " + window.localStorage.getItem("token"),
               "Content-Type": "application/json",
             },
           })
@@ -25,8 +25,8 @@ const Dashboard = () => {
             .then((data) => {
               console.log(data);
               data.forEach((user) => {
-                if (localStorage.getItem("userId")) {
-                  localStorage.setItem("familyId", user.familyId);
+                if (window.localStorage.getItem("userId")) {
+                  window.localStorage.setItem("familyId", user.familyId);
       
                       
                 }

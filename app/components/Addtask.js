@@ -13,10 +13,10 @@ const Addtask = () => {
     const [completed, setCompleted] = useState(false);
     const [username, setUserName] = useState("");
     useEffect(() => { function GetUsers() {
-        fetch('https://localhost:7181/api/Account/'+localStorage.getItem("familyId"), {
+        fetch('https://localhost:7181/api/Account/'+window.localStorage.getItem("familyId"), {
           method: "GET",
           headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
+            Authorization: "Bearer " + window.localStorage.getItem("token"),
             "Content-Type": "application/json",
           },
         })
@@ -44,7 +44,7 @@ const Addtask = () => {
       e.preventDefault();
       const post = {
         "name" : name,
-        "familyId": localStorage.getItem("familyId"),
+        "familyId": window.localStorage.getItem("familyId"),
         "description": description,
         "deadline": deadline,
         "prioritet": prioritet,
@@ -56,7 +56,7 @@ const Addtask = () => {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({
-            'Authorization': 'Bearer ' + localStorage.getItem("token"),
+            'Authorization': 'Bearer ' + window.localStorage.getItem("token"),
             "Content-Type": "application/json",
             "Accept": "application/json"
         })

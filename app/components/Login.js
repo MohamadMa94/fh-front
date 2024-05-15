@@ -13,7 +13,7 @@ const Login = () => {
      {
       method: "GET",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
         "Content-Type": "application/json",
       },
     })
@@ -26,11 +26,11 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         data.forEach((user) => {
-          if (user.email === localStorage.getItem("UserEmail")) {
-            localStorage.setItem("userId", user.id);
-            localStorage.setItem("familyId", user.familyId);
-            localStorage.setItem("name", user.name);
-            localStorage.setItem("hasFamily", user.hasFamily);
+          if (user.email === window.localStorage.getItem("UserEmail")) {
+            window.localStorage.setItem("userId", user.id);
+            window.localStorage.setItem("familyId", user.familyId);
+            window.localStorage.setItem("name", user.name);
+            window.localStorage.setItem("hasFamily", user.hasFamily);
 
             HasFamily=user.hasFamily
                              if( !HasFamily){
@@ -87,8 +87,8 @@ const Login = () => {
             } else {
               let token = result;
               alert("login successful");
-              localStorage.setItem("token", token.jwt);
-              localStorage.setItem("UserEmail", email);
+              window.localStorage.setItem("token", token.jwt);
+              window.localStorage.setItem("UserEmail", email);
 
               SetUser();
               router.push("/dashboard")

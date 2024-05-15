@@ -8,10 +8,10 @@ export function GetCompletedTasks() {
   const [tasks, setTasks] = useState([]);
  
   useEffect(() => {
-    fetch("https://localhost:7181/api/TaskAs/UserCompletedTasks/"+ localStorage.getItem("name"), {
+    fetch("https://localhost:7181/api/TaskAs/UserCompletedTasks/"+ window.localStorage.getItem("name"), {
       method: "GET",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
         "Content-Type": "application/json",
       },
     })

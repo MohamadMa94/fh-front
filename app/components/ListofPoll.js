@@ -9,10 +9,10 @@ export function GetPolls() {
   const [polls, setPolls] = useState([]);
  
   useEffect(() => {
-    fetch("https://localhost:7181/api/Polls/AllPolls/"+ localStorage.getItem("familyId"), {
+    fetch("https://localhost:7181/api/Polls/AllPolls/"+ window.localStorage.getItem("familyId"), {
       method: "GET",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
         "Content-Type": "application/json",
       },
     })

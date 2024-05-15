@@ -15,7 +15,7 @@ export default function Sidebar() {
 const [open ,setOpen]= useState(true)
 const [hasFamily, sethasFamily] = useState(false);  
 useEffect(() => {
-  sethasFamily(localStorage.getItem("hasFamily"))  
+  sethasFamily(window.localStorage.getItem("hasFamily"))  
 }, []);
     if (!hasFamily) {
       return null; 
@@ -58,10 +58,10 @@ onClick={()=> setOpen(!open)} />
     </li>
     <li className="inline-flex py-10">
     <Link href={"/login"} onClick={()=> { localStorage.removeItem('token')
-                  localStorage.removeItem('userId')
-                  localStorage.removeItem('familyId')
-                  localStorage.removeItem('UserEmail')
-                  localStorage.removeItem("hasFamily"),
+                  window.localStorage.removeItem('userId')
+                  window.localStorage.removeItem('familyId')
+                  window.localStorage.removeItem('UserEmail')
+                  window.localStorage.removeItem("hasFamily"),
 
                   
                   router.push('/login');      
