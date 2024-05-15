@@ -11,7 +11,7 @@ export function GetCompletedTasks() {
     fetch("https://localhost:7181/api/TaskAs/UserCompletedTasks/"+ localStorage.getItem("name"), {
       method: "GET",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("Token"),
+        Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",
       },
     })
@@ -52,18 +52,14 @@ const ListOfCompleted = () => {
               key={task.id}
               className="relative group w-full bg-gray-200 hover:border-red-500 border-2 shadow-2xl hover:border-8 py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
             >
-              <h1 className="text-3xl m-2 font-mono text-indigo-1100">
+              <h1 className="text-3xl m-2 mb-10 font-mono text-indigo-1100">
                 {task.name}
               </h1>
-              <h1 className="text-3xl m-2 font-mono text-indigo-1100">
-                {task.userName}
-              </h1>
+         
               <span className="text-xl mb-10 ml-2 font-mono text-indigo-1100 text-balance">
                 {task.description}
               </span>
-              <span className="justify-end flex text-xl mr-2 font-mono text-indigo-1100 text-balance">
-                {new Date(task.deadline).toLocaleDateString()}
-              </span>
+           
           
             </div>
           ))}

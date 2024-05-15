@@ -8,7 +8,7 @@ const GetTask = () => {
   return fetch("https://localhost:7181/api/TaskAs/UserUncompletedTasks/" + localStorage.getItem("name"), {
     method: "GET",
     headers: {
-      Authorization: "Bearer " + localStorage.getItem("Token"),
+      Authorization: "Bearer " + localStorage.getItem("token"),
       "Content-Type": "application/json",
     },
   })
@@ -39,7 +39,7 @@ const ListofMyTask = () => {
       method: "PUT",
       body: JSON.stringify(post),
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("Token"),
+        Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",
         Accept: "application/json",
       },
@@ -61,7 +61,7 @@ const ListofMyTask = () => {
       method: "DELETE",
       body: JSON.stringify(post),
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("Token"),
+        Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",
         Accept: "application/json",
       },
@@ -94,7 +94,6 @@ const ListofMyTask = () => {
               
               >
                 <h1 className="text-3xl m-2 font-mono text-indigo-1100">{task.name}</h1>
-                <h1 className="text-3xl m-2 font-mono text-indigo-1100">{task.userName}</h1>
                 <span className="text-sm mb-10 ml-2 font-mono text-indigo-1100 text-balance">{task.description}</span>
                 <span className="justify-end flex text-sm mr-2 font-mono text-indigo-1100 text-balance">{new Date(task.deadline).toLocaleDateString()}</span>
                 <div className="flex justify-between">

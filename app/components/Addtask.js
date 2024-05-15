@@ -16,7 +16,7 @@ const Addtask = () => {
         fetch('https://localhost:7181/api/Account/'+localStorage.getItem("familyId"), {
           method: "GET",
           headers: {
-            Authorization: "Bearer " + localStorage.getItem("Token"),
+            Authorization: "Bearer " + localStorage.getItem("token"),
             "Content-Type": "application/json",
           },
         })
@@ -56,7 +56,7 @@ const Addtask = () => {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({
-            'Authorization': 'Bearer ' + localStorage.getItem("Token"),
+            'Authorization': 'Bearer ' + localStorage.getItem("token"),
             "Content-Type": "application/json",
             "Accept": "application/json"
         })
@@ -116,11 +116,13 @@ const Addtask = () => {
             value={deadline}
             onChange={(e) => setDeadline(e.target.value)}
           />      <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white"> Member </label>
-              <select class="block mb-2 text-lg font-semibold text-indigo-950 border-4 rounded-lg p-2  dark:text-white" onChange={handleUserName}>
-                {users?.map((user, i) => (
-                    <option  key={i} value={user.name }>  {user.name} </option>
-                ))}
-            </select>   
+            <select class="block mb-2 text-lg font-semibold text-indigo-950 border-4 rounded-lg p-2 dark:text-white" onChange={handleUserName}>
+    <option value="">Select user</option>
+    {users?.map((user, i) => (
+        <option key={i} value={user.name}>{user.name}</option>
+    ))}
+</select>
+
           <label class="block mb-2 text-lg font-semibold text-indigo-950  dark:text-white"> Description </label>
           <input
             type="name"

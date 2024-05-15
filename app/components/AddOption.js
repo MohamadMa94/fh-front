@@ -20,7 +20,7 @@ const AddOption = ({addOption}) => {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({
-            'Authorization': 'Bearer ' + localStorage.getItem("Token"),
+            'Authorization': 'Bearer ' + localStorage.getItem("token"),
             "Content-Type": "application/json",
             "Accept": "application/json"
         })

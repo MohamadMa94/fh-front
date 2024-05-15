@@ -12,7 +12,7 @@ export function GetPolls() {
     fetch("https://localhost:7181/api/Polls/AllPolls/"+ localStorage.getItem("familyId"), {
       method: "GET",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("Token"),
+        Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",
       },
     })
@@ -42,7 +42,7 @@ const ListofPoll = () => {
     <div className="pt-8 ml-12 rounded-2xl ">
       <div className="flex-1 px-2 sm:px-0">
         <div className="flex justify-between items-center">
-          <h3 className="text-6xl font-bold text-indigo-950">Polls</h3>
+          <h3 className="text-6xl font-bold text-indigo-950">Voting</h3>
           <div className="inline-flex items-center space-x-2">
 
           </div>

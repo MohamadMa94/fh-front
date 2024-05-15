@@ -1,19 +1,19 @@
 "use client";
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation'
+//import { useRouter } from 'next/navigation'
 import  Link  from "next/link";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const router = useRouter()
+  //const router = useRouter()
   var HasFamily 
   function  SetUser () {
     fetch("https://localhost:7181/api/Account",
      {
       method: "GET",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("Token"),
+        Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",
       },
     })
@@ -27,21 +27,24 @@ const Login = () => {
         console.log(data);
         data.forEach((user) => {
           if (user.email === localStorage.getItem("UserEmail")) {
-            localStorage.setItem("userId", user.userId);
+            localStorage.setItem("userId", user.id);
             localStorage.setItem("familyId", user.familyId);
             localStorage.setItem("name", user.name);
+            localStorage.setItem("hasFamily", user.hasFamily);
+
             HasFamily=user.hasFamily
                              if( !HasFamily){
                   console.log(HasFamily);
+               //   localStorage.setItem("hasFamily", false);
 
-                  router.push('/addfamliy')
+                 // router.push('/addfamliy')
 
 
                  } 
                  else{
                   console.log(HasFamily);
 
-                  router.push('/dashboard')
+                //  router.push('/dashboard')
 
                  }
           }
@@ -85,10 +88,11 @@ const Login = () => {
             } else {
               let token = result;
               alert("login successful");
-              localStorage.setItem("Token", token.jwt);
+              localStorage.setItem("token", token.jwt);
               localStorage.setItem("UserEmail", email);
 
               SetUser();
+              router.push("/dashboard")
             }
           }
         },
@@ -121,7 +125,7 @@ const Login = () => {
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 								d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
 						</svg>
-						<input class="pl-2 outline-none border-none" type="text" name="" id="" placeholder="Email Address "     onChange={(e) => setEmail(e.target.value)} />
+						<input class="pl-2 outline-none border-none" type="text" name="" id="" placeholder="email"  data-testid="email"   onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div class="flex items-center border-4 py-2 px-6 rounded-2xl mb-4">
 							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
@@ -130,7 +134,7 @@ const Login = () => {
 									d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
 									clip-rule="evenodd" />
 							</svg>
-							<input class="pl-2 outline-none border-none"      type="Password"        required        placeholder="Password"        value={Password}    onChange={(e) => setPassword(e.target.value)}/>
+							<input class="pl-2 outline-none border-none"      type="Password"        required   data-testid="Password"     placeholder="Password"        value={Password}    onChange={(e) => setPassword(e.target.value)}/>
       </div>
 							<button type="submit" class="block w-full text-gray-500 border-4 border-red-300 mt-4 py-2 rounded-xl font-semibold mb-2">Login</button>
               <Link  href={"/signup"} class="block w-full text-gray-500 border-4 items-center text-center border-green-300 mt-4 py-2 rounded-xl font-semibold mb-2">Sign Up</Link>

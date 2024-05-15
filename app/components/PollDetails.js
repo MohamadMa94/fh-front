@@ -21,7 +21,7 @@ export function PollDetails({ pollDetails }) {
         method: "POST",
     body: JSON.stringify(post),
     headers: new Headers({
-        'Authorization': 'Bearer ' + localStorage.getItem("Token"),
+        'Authorization': 'Bearer ' + localStorage.getItem("token"),
         "Content-Type": "application/json",
         "Accept": "application/json"
     })}).then(response => {
@@ -43,7 +43,7 @@ export function PollDetails({ pollDetails }) {
     fetch("https://localhost:7181/api/Polls/"+ pollDetails, {
       method: "GET",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("Token"),
+        Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",
       },
     })
@@ -65,7 +65,7 @@ export function PollDetails({ pollDetails }) {
       fetch("https://localhost:7181/api/Polls/AllOptions/"+ pollDetails, {
         method: "GET",
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("Token"),
+          Authorization: "Bearer " + localStorage.getItem("token"),
           "Content-Type": "application/json",
         },
       }).then((res) => {

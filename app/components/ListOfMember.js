@@ -10,7 +10,7 @@ export function GetUsers() {
       fetch("https://localhost:7181/api/Account/"+ FamilyId, {
         method: "GET",
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("Token"),
+          Authorization: "Bearer " + localStorage.getItem("token"),
           "Content-Type": "application/json",
         },
       })

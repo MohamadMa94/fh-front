@@ -3,17 +3,16 @@ import { useRouter } from 'next/navigation'
 import { useEffect } from "react";
 const Dashboard = () => {
 
-  let use = localStorage.getItem("Token")
     const router = useRouter();
     useEffect(() => {
-        if(!use){
-            router.push('/login');
-        }function  GetUser () {
+        
+        
+        function  GetUser () {
           fetch("https://localhost:7181/api/Account",
            {
             method: "GET",
             headers: {
-              Authorization: "Bearer " + localStorage.getItem("Token"),
+              Authorization: "Bearer " + localStorage.getItem("token"),
               "Content-Type": "application/json",
             },
           })

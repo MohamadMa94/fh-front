@@ -1,21 +1,27 @@
 "use client";
-import { useRouter } from 'next/navigation'
 import  Link  from "next/link";
 import { MdOutlineFamilyRestroom } from "react-icons/md";
-
+import {useState,useEffect } from "react";
 import { FaUsersLine } from "react-icons/fa6";
 import { MdDashboard } from "react-icons/md";
 
+export default function Header() {
 
+  const [hasFamily, sethasFamily] = useState(false);
 
-const Header = () => {
-  let us = localStorage.getItem("Token")
-if (!us) {
-       return null; // Return null if user is not logged in
-     }
+  
+      useEffect(() => {
+        sethasFamily(localStorage.getItem("hasFamily"))
+        
+   }, []);
+
+          if (!hasFamily) {
+            return null; // Return null if user is not logged in
+          }
+
   return (
-    <header >
-    <nav class=" bg-indigo-950 px-4 lg:px-6 py-4 pb-3 dark:bg-gray-800 justify-start">
+    <div >
+    <div class=" bg-indigo-950 px-4 lg:px-6 py-4 pb-3 dark:bg-gray-800 justify-start">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-3xl">
 
 
@@ -27,7 +33,7 @@ if (!us) {
      </a>
             
         <div class="flex items-center ml-48 lg:order-2">
-                
+
                          </div>
      
             <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
@@ -47,13 +53,13 @@ if (!us) {
           </ul>
 
         </div>
+
         </div>
 
 
-      </nav>
-    </header>
+      </div>
+    </div>
   );
 };
 
-export default Header;
 

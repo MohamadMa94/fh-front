@@ -1,16 +1,17 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { MdDeleteForever } from "react-icons/md";
 
 import Link from "next/link";
 
 export function GetTasks() {
   const [tasks, setTasks] = useState([]);
- 
+  
   useEffect(() => {
     fetch("https://localhost:7181/api/TaskAs/AllTasks/"+ localStorage.getItem("familyId"), {
       method: "GET",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("Token"),
+        Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",
       },
     })
@@ -35,6 +36,29 @@ export function GetTasks() {
 const ListofAllTasks = () => {
   const tasks = GetTasks();
 
+  const handledelet = (taskId) => {
+    const post = { completed: true };
+    fetch("https://localhost:7181/api/TaskAs/"+ taskId, {
+      method: "DELETE",
+      body: JSON.stringify(post),
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("Token"),
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to delete task");
+        }
+        alert("Task deleted successfully");
+        window.location.replace("/alltask");
+
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
   return (
     <div className="pt-8 ml-12 rounded-2xl  bg-bg-amber-200">
       <div className="flex-1 px-2 sm:px-0">
@@ -79,24 +103,33 @@ const ListofAllTasks = () => {
             tasks.map((task) => (
               <div
                 key={task.id}
-                className="relative group w-full bg-gray-300  shadow-2xl hover:border-8 hover:border-green-400 py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
+                className="relative group w-full border-2 border-indigo-1000  shadow-2xl hover:border-8 hover:border-green-400 py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
               >
-                <h1 className="text-3xl m-2 font-mono text-indigo-1100">
+                <h1 className="text-2xl m-2 font-mono text-indigo-1100">
                   {task.name}
                 </h1>
-                <h1 className="text-3xl m-2 font-mono text-indigo-1100">
+                <h1 className="text-2xl m-2 font-mono text-indigo-1100">
                   {task.userName}
                 </h1>
-                <span className="text-xl mb-10 ml-2 font-mono text-indigo-1100 text-balance">
+                <span className="text-md mb-10 mt-4 ml-2 font-mono text-indigo-1100 text-balance">
                   {task.description}
                 </span>
-                <span className="text-xl mb-10 ml-2 font-mono text-indigo-1100 text-balance">
+                <span className="text-lg mb-10 ml-2 font-mono text-indigo-1100 text-balance">
   {task.completed ? "Completed" : "Not completed"}
 </span>
 
                 <span className="justify-end flex text-xl mr-2 font-mono text-indigo-1100 text-balance">
                   {new Date(task.deadline).toLocaleDateString()}
                 </span>
+                <div className="justify-end flex items-center">
+                    <MdDeleteForever         onClick={() => handledelet(task.id)}
+ className="text-3xl text-indigo-1100 mt-4 hover:text-red-500 justify-end"
+                    
+                    
+                    
+                    
+                    />
+                  </div>
               </div>
             ))
           )}

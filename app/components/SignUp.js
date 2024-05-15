@@ -16,16 +16,16 @@ const SignUp = () => {
     e.preventDefault();
 
     // Check for password length
-    if (password.length < 8) {
+/*     if (password.length < 8) {
       setPasswordError('Passwords must be at least 8 characters long');
       return;
-    }
+    } */
 
     // Check for username length
-    if (name.length < 4 || name.length > 20) {
+/*     if (name.length < 4 || name.length > 20) {
       setUsernameError('Usernames must be between 4 and 20 characters long.');
       return;
-    }
+    } */
 
     let url = 'https://localhost:7181/api/Account/register';
     const user = {

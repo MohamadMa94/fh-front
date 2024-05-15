@@ -17,7 +17,7 @@ const Addfamliy = ({}) => {
         method: "POST",
         body: JSON.stringify(post),
         headers: new Headers({
-            'Authorization': 'Bearer ' + localStorage.getItem("Token"),
+            'Authorization': 'Bearer ' + localStorage.getItem("token"),
             "Content-Type": "application/json",
             "Accept": "application/json"
         })
@@ -27,6 +27,8 @@ const Addfamliy = ({}) => {
         }
         else{
             return  alert("Famliy succesfully created"),
+            localStorage.setItem("hasFamily", true),
+
             router.push('/dashboard');
           }
         })
