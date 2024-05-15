@@ -8,7 +8,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [age, setAge] = useState(0);
   const [name, setName] = useState('');
-  const router = useRouter();
+const router = useRouter();
   const [passwordError, setPasswordError] = useState('');
   const [usernameError, setUsernameError] = useState('');
 
@@ -16,16 +16,16 @@ const SignUp = () => {
     e.preventDefault();
 
     // Check for password length
-/*     if (password.length < 8) {
+    if (password.length < 8) {
       setPasswordError('Passwords must be at least 8 characters long');
       return;
-    } */
+    } 
 
     // Check for username length
-/*     if (name.length < 4 || name.length > 20) {
+    if (name.length < 4 || name.length > 20) {
       setUsernameError('Usernames must be between 4 and 20 characters long.');
       return;
-    } */
+    } 
 
     let url = 'https://localhost:7181/api/Account/register';
     const user = {
@@ -54,7 +54,7 @@ const SignUp = () => {
           throw new Error('Empty JSON response');
         }
         alert('User successfully created');
-        router.push('/login');
+       router.push('/login');
       })
       .catch((error) => {
         alert('Error: ' + error);
@@ -93,7 +93,7 @@ const SignUp = () => {
               className="pl-2 outline-none border-none"
               type="text"
               required
-              placeholder="Email Address "
+              placeholder="Email "
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>

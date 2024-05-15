@@ -8,7 +8,7 @@ const Changepassword = () => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     
-    const router = useRouter()    
+ const router = useRouter()    
 
     const handleForm = (e) => {
       e.preventDefault();
@@ -32,8 +32,9 @@ const Changepassword = () => {
             alert("Couldn't change password");
         }
         else{
-            return alert("Changed succesfully "),
-            router.push('/dashboard');
+            return         router.push('/dashboard'),
+            alert("Changed succesfully ")
+
         }
     })
 
@@ -56,7 +57,7 @@ const Changepassword = () => {
             type="text"
             required
             class="bg-gray-50 border border-gray-300 text-s sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-
+            placeholder='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -65,6 +66,7 @@ const Changepassword = () => {
             type="password"
             required
             class="bg-gray-50 border border-gray-300 text-s sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+            placeholder='Old password'
 
             value={oldpassword}
             onChange={(e) => setOldpassword(e.target.value)}
@@ -75,6 +77,7 @@ const Changepassword = () => {
             type="password"
             required
             class="bg-gray-50 border border-gray-300 text-s sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+            placeholder='New password'
 
             value={password}
             onChange={(e) => setPassword(e.target.value)}

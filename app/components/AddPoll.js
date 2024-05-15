@@ -6,7 +6,7 @@ import  Link  from "next/link";
 const AddPoll = () => {
     const [name, setName] = useState("");
    
-       const router = useRouter()    
+    const router = useRouter()    
    
     const handleForm = (e) => {
       e.preventDefault();
@@ -55,7 +55,7 @@ const AddPoll = () => {
             type="name"
             required
             class="bg-gray-50 border border-gray-300 text-s sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-
+placeholder='Name'
             value={name}
             onChange={(e) => setName(e.target.value)}
           />

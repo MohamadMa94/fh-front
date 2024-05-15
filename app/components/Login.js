@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from 'react';
-//import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import  Link  from "next/link";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  //const router = useRouter()
+ const router = useRouter()
   var HasFamily 
   function  SetUser () {
     fetch("https://localhost:7181/api/Account",
@@ -37,14 +37,13 @@ const Login = () => {
                   console.log(HasFamily);
                //   localStorage.setItem("hasFamily", false);
 
-                 // router.push('/addfamliy')
+                 router.push('/addfamliy')
 
 
                  } 
                  else{
                   console.log(HasFamily);
-
-                //  router.push('/dashboard')
+ router.push('/dashboard')
 
                  }
           }
