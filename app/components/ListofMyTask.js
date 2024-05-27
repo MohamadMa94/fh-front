@@ -84,18 +84,18 @@ const ListofMyTask = () => {
         <div className="flex justify-between items-center">
           <h3 className="text-6xl font-bold text-indigo-950">My Tasks</h3>
         </div>
-        <div className="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="mb-10 sm:mb-0 mt-10 grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {tasks.length === 0 ? (
             <div className="text-center  text-gray-500">No tasks available</div>
           ) : (
             tasks.map(task => (
               <div key={task.id} 
-              className="relative group w-80 bg-gray-300  shadow-2xl  py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
+              className="relative group w-full mb-4 mr-4 bg-gray-300  shadow-2xl  py-4 px-4 flex flex-col justify-items-start cursor-pointer rounded-3xl rond hover:smooth-hover"
               
               >
                 <h1 className="text-3xl m-2 font-mono text-indigo-1100">{task.name}</h1>
-                <span className="text-sm mb-10 ml-2 font-mono text-indigo-1100 text-balance">{task.description}</span>
-                <span className="justify-end flex text-sm mr-2 font-mono text-indigo-1100 text-balance">{new Date(task.deadline).toLocaleDateString()}</span>
+{/*                 <span className="text-sm mb-10 ml-2 font-mono text-indigo-1100 text-balance">{task.description}</span>
+ */}                <span className="justify-end flex text-sm mr-2 font-mono text-indigo-1100 text-balance">{new Date(task.deadline).toLocaleDateString()}</span>
                 <div className="flex justify-between">
                   <button onClick={() => handleComplete(task.id)} className="w-40 mr-4 text-lg hover:text-white text-indigo-950 bg-white border-4 border-indigo-950 font-semibold hover:bg-green-150 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg px-2 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                     Completed

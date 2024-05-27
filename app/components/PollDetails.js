@@ -10,7 +10,7 @@ export function PollDetails({ pollDetails }) {
 
  const data = poll
 
- const handleForm = (e) => {
+ const handlevote = (e) => {
   e.preventDefault(); 
   const post = {
     "optionId":optionId,
@@ -103,7 +103,7 @@ export function PollDetails({ pollDetails }) {
                 ))}
             </select> 
     </div>
-    <form onSubmit={handleForm}>
+    <form onSubmit={handlevote}>
 
  
             <div className="flex justify-between items-center">
